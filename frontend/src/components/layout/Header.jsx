@@ -2,7 +2,7 @@ import React from "react";
 import TestLogo from "../../assets/icons/TestLogo.png";
 import more_vert from "../../assets/icons/more_vert.png";
 import home from "../../assets/icons/home.png";
-import Settings from "../../assets/icons/Settings.png";
+import Settings from "../../assets/icons/settings.png"
 import Profile from "../../assets/icons/Profile.png";
 import chatBubble from "../../assets/icons/chatBubble.png";
 import Schedule from "../../assets/icons/Schedule.png";

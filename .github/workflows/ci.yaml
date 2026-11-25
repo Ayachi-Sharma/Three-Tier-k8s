@@ -27,7 +27,7 @@ jobs:                        # WHAT should run (a workflow has one or more jobs)
         with:
           context: ./backend
           push: true
-          tags: ${{ YOUR_DOCKERHUB_USERNAME }}/meditrack-backend:latest
+          tags: ${{ secrets.YOUR_DOCKERHUB_USERNAME }}/meditrack-backend:latest
       
       - name: Build and push frontend
         uses: docker/build-push-action@v6
@@ -35,4 +35,4 @@ jobs:                        # WHAT should run (a workflow has one or more jobs)
           context: ./frontend
           build-args: VITE_API_URL=http://localhost:5000
           push: true
-          tags: ${{ YOUR_DOCKERHUB_USERNAME }}/meditrack-frontend:latest
+          tags: ${{ secrets.YOUR_DOCKERHUB_USERNAME }}/meditrack-frontend:latest

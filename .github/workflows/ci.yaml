@@ -33,6 +33,6 @@ jobs:                        # WHAT should run (a workflow has one or more jobs)
         uses: docker/build-push-action@v6
         with:
           context: ./frontend
-          build-args: VITE_API_URL=http://localhost:5000
+          build-args: VITE_API_URL=
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/meditrack-frontend:latest

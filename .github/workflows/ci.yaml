@@ -40,3 +40,13 @@ jobs:                        # WHAT should run (a workflow has one or more jobs)
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/meditrack-frontend:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/meditrack-frontend:${{ github.sha }}
+  deploy:
+    needs: build-and-push
+    runs-on: self-hosted
+    steps:
+      - name: Deploy new images to the cluster
+        run: |
+          kubectl set image deployment/backend backend=${{ secrets.DOCKERHUB_USERNAME }}/meditrack-backend:${{ github.sha }}
+          kubectl set image deployment/frontend frontend=${{ secrets.DOCKERHUB_USERNAME }}/meditrack-frontend:${{ github.sha }}
+          kubectl rollout status deployment/backend
+          kubectl rollout status deployment/frontend
